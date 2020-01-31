@@ -37,7 +37,7 @@ public class Variables
 
 		//output your information here
 		System.out.println("/////////////////////////////////");
-		System.out.println("*  Paul Han             01/31/20*");
+		System.out.println("*  Paul S Han             01/31/20*");
 		System.out.println("*        integer types          *");
 		System.out.println("*                               *");
 		System.out.println("*8 bit - byteOne = "+byteOne+"\t\t*");
