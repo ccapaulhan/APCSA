@@ -5,7 +5,6 @@ package Unit2;
 //Date - 2/3/20
 //Class - 2
 //Lab  - CubeRunner
-
 public class CubeRunner
 {
 	public static void main( String[] args )
