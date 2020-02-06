@@ -1,10 +1,10 @@
 //(c) A+ Computer Science 
 //www.apluscompsci.com
 
-//Name -
-//Date -
-//Class -
-//Lab  -
+//Name - Paul Han
+//Date - 2/6/2020
+//Class - 2
+//Lab  - Distance
 package Unit3;
 
 import java.util.Scanner; 
