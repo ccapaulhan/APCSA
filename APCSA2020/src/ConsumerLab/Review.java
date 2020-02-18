@@ -38,7 +38,6 @@ public class Review {
       Scanner input = new Scanner(new File("src/ConsumerLab/positiveAdjectives.txt"));
       while(input.hasNextLine()){
         String temp = input.nextLine().trim();
-        System.out.println(temp);
         posAdjectives.add(temp);
       }
       input.close();
@@ -168,7 +167,6 @@ public class Review {
 			  condition = false;
 		  }
 	  }
-	  stringText.indexOf(' ');
        // find each word
        // add in its sentimentVal
        // set the file contents to start after this word
@@ -186,14 +184,109 @@ public class Review {
   public static int starRating(String filename)
   {
     // call the totalSentiment method with the fileName
-
+	double score = totalSentiment(filename);
     // determine number of stars between 0 and 4 based on totalSentiment value 
     int stars=0;
     // write if statements here
+    if (score < -2.0 ) {
+    	stars = 0;
+    }
+    else if (score < 0.0) {
+    	stars = 1;
+    }
+    else if (score < 7.0) {
+    	stars = 2;
+    }
+    else if (score < 14.0) {
+    	stars = 3;
+    }
+    else {
+    	stars = 4;
+    }
 
-    
   
     // return number of stars
     return stars; 
   }
+
+
+  public static String fakeReview(String filename) {
+	  String stringText =  textToString(filename);
+	  String word;
+	  boolean condition = true;
+    // loop through the file contents 
+	  while (condition) {
+		  while (stringText.charAt(stringText.indexOf("-") -1 ) == ' ') {
+			  stringText= stringText.replaceFirst(" ","%");
+		  }
+		  
+		  word = stringText.substring(stringText.indexOf('-'), stringText.indexOf(' '));
+		  stringText = stringText.replaceFirst(word, randomAdjective());
+
+		  if (stringText.indexOf('-') == -1 ) {
+			  condition = false;
+		  }
+	  }
+	  stringText = stringText.replace('%', ' ');
+	  return stringText;
+  }
+  
+  public static String fakePositiveReview(String filename) {
+	  String stringText =  textToString(filename);
+	  String word;
+	  boolean condition = true;
+    // loop through the file contents 
+	  while (condition) {
+		  while (stringText.charAt(stringText.indexOf("-") -1 ) == ' ') {
+			  stringText= stringText.replaceFirst(" ","%");
+		  }
+
+		  
+		  word = stringText.substring(stringText.indexOf('-')+1, stringText.indexOf(' '));
+
+		  if (sentimentVal(word) < 0) {
+			  stringText = stringText.replaceFirst(word, randomPositiveAdj());
+			  stringText= stringText.replaceFirst("-","%");
+		  }
+		  else {
+			  stringText= stringText.replaceFirst("-","%");
+
+		  }
+
+		  if (stringText.indexOf('-') == -1 ) {
+			  condition = false;
+		  }
+	  }
+	  stringText = stringText.replace('%', ' ');
+	  return stringText;
+  }
+  
+  public static String fakeNegativeReview(String filename) {
+	  String stringText =  textToString(filename);
+	  String word;
+	  boolean condition = true;
+    // loop through the file contents 
+	  while (condition) {
+		  while (stringText.charAt(stringText.indexOf("-") -1 ) == ' ') {
+			  stringText= stringText.replaceFirst(" ","%");
+		  }
+		  
+		  word = stringText.substring(stringText.indexOf('-')+1, stringText.indexOf(' '));
+		  if (sentimentVal(word) >= 0) {
+			  stringText = stringText.replaceFirst(word, randomNegativeAdj());
+			  stringText= stringText.replaceFirst("-","%");
+		  }
+		  else {
+			  stringText= stringText.replaceFirst("-","%");
+
+		  }
+		  if (stringText.indexOf('-') == -1 ) {
+			  condition = false;
+		  }
+	  }
+	  stringText = stringText.replace('%', ' ');
+	  return stringText;
+  }
+	
+	
 }
