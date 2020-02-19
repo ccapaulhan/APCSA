@@ -245,8 +245,10 @@ public class Review {
 		  word = stringText.substring(stringText.indexOf('-')+1, stringText.indexOf(' '));
 
 		  if (sentimentVal(word) < 0) {
+
 			  stringText = stringText.replaceFirst(word, randomPositiveAdj());
 			  stringText= stringText.replaceFirst("-","%");
+
 		  }
 		  else {
 			  stringText= stringText.replaceFirst("-","%");
