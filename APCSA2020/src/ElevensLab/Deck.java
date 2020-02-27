@@ -13,6 +13,7 @@ public class Deck {
 	public static String[] SUITS = "CLUBS HEARTS DIAMONDS SPADES".split(" ");
 	
 	private List<Card> cards;
+	private int size;
 	private Card top;
 	
 	public Deck() {
@@ -20,23 +21,51 @@ public class Deck {
 		
 		for (int x = 0; x <4; x++) {
 			for (int y = 1; y<14; y++) {
-				cards.add(new BlackJackCard(SUITS[x], y));
+				cards.add(new Card(SUITS[x], y));
 			}
 		}
-		top = cards.get(51);
+		size = cards.size();
 	}
 	
+	public Deck(String[] ranks, String[] suits, int[] numbers) {
+		
+		cards = new ArrayList<Card>();
+		
+		for (int x = 0; x < suits.length; x++) {
+			for (int y = 0; y<numbers.length; y++) {
+				cards.add(new Card(suits[x], numbers[y]));
+			}
+		}
+		
+		
+		size = cards.size();
+		
+	}
+	
+	
 	public Card dealCard() {
-		top = cards.get(51);
-		Card placer = cards.get(51);
-		cards.remove(cards.get(51));
-		cards.add(0,placer);
+		if (size == 0) {
+			return null;
+		}
+		top = cards.get(size-1);
+		size--;
 		return top;
 	}
 	
 	public void shuffle() {
 		Collections.shuffle(cards);
-		top = cards.get(51);
+		size = cards.size();
+	}
+	
+	public boolean isEmpty() {
+		if (size == 0) {
+			return true;
+		}
+		return false;
+	}
+	
+	public int size() {
+		return size;
 	}
 
    //make a Deck constructor

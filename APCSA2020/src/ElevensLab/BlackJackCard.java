@@ -23,6 +23,6 @@ public class BlackJackCard extends Card
   	//toString
   	public String toString()
   	{
-  		return super.toString() + " " + getValue();
+  		return super.toString();
   	}
  }

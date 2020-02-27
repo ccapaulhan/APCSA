@@ -9,6 +9,7 @@ public class Card
 			"FIVE","SIX","SEVEN","EIGHT","NINE","TEN","JACK","QUEEN","KING"};
 	
 	private String suit;
+	private String rank;
 	private int face;
 
 	//instance variables
@@ -16,6 +17,12 @@ public class Card
 		//int face
 
   	//constructors
+	public Card(String shape, String rank, int number) {
+		suit = shape;
+		this.rank = rank;
+		face = number;
+	}
+	
 	public Card(String shape, int number) {
 		suit = shape;
 		face = number;
@@ -27,6 +34,10 @@ public class Card
 
 	public void setFace(int number) {
 		face = number;
+	}
+	
+	public void setRank(String rank) {
+		this.rank = rank;
 	}
 
 	// modifiers
@@ -42,12 +53,28 @@ public class Card
 	public int getFace() {
 		return face;
 	}
+	
+	public String getRank() {
+		return rank;
+	}
+	
+	// test equality
+	
+	public boolean testEquality(Card a, Card b) {
+		
+		if (a.face == b.face && a.getSuit().equals(b.getSuit())) {
+			return true;
+		}
+		
+		return false;
+		
+	}
 
 
   	//toString
 	public String toString() {
-		
-		return FACES[face]+" of "+suit;
+		rank = FACES[face];
+		return rank  +" of "+suit + " (Point Value = " + face + ")";
 	}
 
  }
