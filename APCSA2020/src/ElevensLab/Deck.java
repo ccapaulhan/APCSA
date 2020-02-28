@@ -4,6 +4,7 @@
 package ElevensLab;
 
 import java.util.List;
+import java.util.Random;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -53,8 +54,18 @@ public class Deck {
 	}
 	
 	public void shuffle() {
-		Collections.shuffle(cards);
+		
 		size = cards.size();
+
+		Random rand = new Random();
+		int r = 0;
+		Card placer;
+		for (int k = (cards.size())-1; k >=1; k-- ) {
+			r= rand.nextInt(k+1);
+			placer = cards.get(k);
+			cards.set(k, cards.get(r)); 
+			cards.set(r, placer);  
+		}
 	}
 	
 	public boolean isEmpty() {
@@ -66,6 +77,16 @@ public class Deck {
 	
 	public int size() {
 		return size;
+	}
+
+	public String toString() {
+		String returnValue = "";
+		
+		for (int x = 0; x < size; x++) {
+			returnValue = returnValue + cards.get(x).toString() + "\n";
+		}
+		
+		return returnValue;
 	}
 
    //make a Deck constructor

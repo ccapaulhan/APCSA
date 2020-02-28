@@ -60,9 +60,9 @@ public class Card
 	
 	// test equality
 	
-	public boolean testEquality(Card a, Card b) {
+	public boolean testEquality(Card b) {
 		
-		if (a.face == b.face && a.getSuit().equals(b.getSuit())) {
+		if (face == b.face && suit.equals(b.getSuit())) {
 			return true;
 		}
 		
