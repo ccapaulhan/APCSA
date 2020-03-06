@@ -9,14 +9,14 @@ import java.util.ArrayList;
 import java.util.Collections;
 import static java.lang.System.*;
 
-public class ToyStore
+public class ToyStore31
 {
 	private ArrayList<Toy> toyList = new ArrayList<Toy>();
 	private ArrayList<Toy> sortedList=new ArrayList<Toy>();
 	private String toyName;
 
 
-	public ToyStore()
+	public ToyStore31()
 	{
 		toyName = "default";
 		
@@ -24,9 +24,20 @@ public class ToyStore
 
 	public void loadToys( String toys )
 	{
-		toyName = toys;
-		Toy toy = new Toy(toyName);
-		toyList.add(toy);
+		boolean condition = true;
+		while (condition)
+		{
+			if (toys.indexOf(' ') != -1) {
+				Toy toy = new Toy(toys.substring(0,toys.indexOf(' ')));
+				toyList.add(toy);
+				toys =  toys.substring(toys.indexOf(' ')+1);
+			}
+			
+			
+			if (toys.indexOf(' ') == -1) {
+				condition = false;
+			}
+		}
 	}
   
   	public Toy getThatToy( String nm )
@@ -49,7 +60,7 @@ public class ToyStore
   		}
   		
   		
-  		return "most toy == " + mostToy.getName();
+  		return mostToy.getName();
   	}  
   
   	public void sortToysByCount()
@@ -77,6 +88,13 @@ public class ToyStore
   		
   		
   	}  
+  	public String myName(){
+  		
+  		System.out.println("Paul Han");
+  		
+  		return "Paul Han";
+  	}
+
   	  
 	public String toString()
 	{

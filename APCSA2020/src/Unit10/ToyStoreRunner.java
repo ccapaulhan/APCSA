@@ -12,19 +12,10 @@ public class ToyStoreRunner
 {
 	public static void main( String args[] )
 	{
-		ToyStore newToyStore = new ToyStore();
+		ToyStore31 newToyStore = new ToyStore31();
+		System.out.println(newToyStore);
+		newToyStore.loadToys("sorry bat sorry sorry sorry train train teddy teddy ball ball" );
 		
-		newToyStore.loadToys("sorry");
-		newToyStore.loadToys("bat");
-		newToyStore.loadToys("sorry");
-		newToyStore.loadToys("sorry");
-		newToyStore.loadToys("sorry");
-		newToyStore.loadToys("train");
-		newToyStore.loadToys("train");
-		newToyStore.loadToys("teddy");
-		newToyStore.loadToys("teddy");
-		newToyStore.loadToys("ball");
-		newToyStore.loadToys("ball");
 		
 		newToyStore.sortToysByCount();
 		
