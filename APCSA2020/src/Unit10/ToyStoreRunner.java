@@ -12,24 +12,10 @@ public class ToyStoreRunner
 {
 	public static void main( String args[] )
 	{
-		ToyStore31 newToyStore = new ToyStore31();
-		System.out.println(newToyStore);
-		newToyStore.loadToys("sorry bat sorry sorry sorry train train teddy teddy ball ball" );
-		
-		
-		newToyStore.sortToysByCount();
-		
-		
-		System.out.println("Sorted Toy List: ");
-
-		System.out.println(newToyStore);
-		System.out.println("\nMost Toy: ");
-
-		System.out.println(newToyStore.getMostFrequentToy());
-
-
-
-
-
+		ToyStore31 sto = new ToyStore31();
+		System.out.println( sto );
+		sto.loadToys("sorry bat sorry sorry sorry train train teddy teddy ball ball" );
+		System.out.println( sto );	
+		System.out.println( "max == " + sto.getMostFrequentToy() );		
 	}
 }

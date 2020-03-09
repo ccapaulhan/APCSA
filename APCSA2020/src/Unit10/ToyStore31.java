@@ -27,17 +27,20 @@ public class ToyStore31
 		boolean condition = true;
 		while (condition)
 		{
-			if (toys.indexOf(' ') != -1) {
-				Toy toy = new Toy(toys.substring(0,toys.indexOf(' ')));
-				toyList.add(toy);
-				toys =  toys.substring(toys.indexOf(' ')+1);
-			}
+			
+			Toy toy = new Toy(toys.substring(0,toys.indexOf(' ')));
+			toyList.add(toy);
+			toys =  toys.substring(toys.indexOf(' ')+1);
+			
 			
 			
 			if (toys.indexOf(' ') == -1) {
+				Toy newToy = new Toy(toys);
+				toyList.add(toy);
 				condition = false;
 			}
 		}
+		sortToysByCount();
 	}
   
   	public Toy getThatToy( String nm )
