@@ -24,5 +24,14 @@ public class Welcome03_List {
             System.out.println("  " + ws.getId() + ": " + ws.getName());
          }
       }
+      double lat = 180;
+      WeatherStation blank = null;
+      for (WeatherStation ws: allstns) {
+    	  if (ws.getLat() < lat) {
+    		  lat = ws.getLat();
+    		  blank = ws;
+    	  }
+      }
+      System.out.println("The most southern weather station is " + blank.getName() + " with a latitude of " + lat);
    }
 }
